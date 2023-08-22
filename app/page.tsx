@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 
 const EmailForm = () => {
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   async function postEmail(email: string): Promise<Response> {
     const response = await fetch('/api/post_email', {
@@ -22,6 +23,7 @@ const EmailForm = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log('Email submitted:', email);
     postEmail(email)
       .then(response => {
@@ -35,6 +37,9 @@ const EmailForm = () => {
       })
       .catch(error => {
         console.error('Failed to post email:', error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -86,7 +91,7 @@ const EmailForm = () => {
               type="submit"
               className="bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition duration-300"
             >
-              Submit
+              {isLoading ? 'Submitting...' : 'Submit'}
             </button>
           </form>
         </div>
