@@ -89,6 +89,7 @@ const EmailForm = () => {
             />
             <button
               type="submit"
+              disabled={isLoading}
               className="bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition duration-300"
             >
               {isLoading ? 'Submitting...' : 'Submit'}
