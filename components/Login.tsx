@@ -9,8 +9,20 @@ const Login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     try {
-      await firebase.auth().signInWithPopup(provider);
-      router.push('/home');
+      const result = await firebase.auth().signInWithPopup(provider);
+      const user = result.user;
+      
+      if (user) {
+        // User is signed in, check if the user has a display name
+        if (user.displayName) {
+          // Navigate to the '/home' route with the user's name as a query parameter
+          router.push(`/home?name=${encodeURIComponent(user.displayName)}`);
+        } else {
+          router.push('/home'); // Navigate without a name if it's not available
+        }
+      } else {
+        console.error('User is null after signing in with Google');
+      }
     } catch (error) {
       console.error('Error signing in with Google:', error);
     }
