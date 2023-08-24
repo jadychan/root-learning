@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from './Login';
 
 const Navbar = () => {
 
@@ -20,6 +21,7 @@ const Navbar = () => {
           <div className="text-2xl font-bold"></div>
           <ul className="flex space-x-4">
             <li><a href="#"></a></li>
+            <Login />
           </ul>
         </div>
       </div>

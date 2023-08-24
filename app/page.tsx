@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './globals.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbar from './components/Navbar';
+import Navbar from '../components/Navbar';
 
 const EmailForm = () => {
   const [email, setEmail] = useState('');
