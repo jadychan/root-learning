@@ -1,0 +1,26 @@
+.create-project-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  background-color: #C1D37F; /* Background color of the button */
+  color: #fff; /* Text color */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transition effect on hover */
+}
+
+.create-project-button:hover {
+  background-color: #E2D58B; /* Background color on hover */
+}
+
+.plus-icon {
+  font-size: 40px; /* Adjust the icon size as needed */
+}
+
+.text {
+  margin-top: 10px; /* Spacing between icon and text */
+  font-size: 18px; /* Text size */
+  text-align: center; /* Center text */
+}

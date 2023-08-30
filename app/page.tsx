@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import './globals.css';
+import '../css/globals.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar';
@@ -44,10 +44,8 @@ const EmailForm = () => {
   };
 
   const scrollToEmailForm = () => {
-    // Find the email form element by its ID or another unique identifier.
     const emailForm = document.getElementById('email-form');
 
-    // Scroll to the email form using the scrollIntoView method.
     if (emailForm) {
       emailForm.scrollIntoView({ behavior: 'smooth' });
     }

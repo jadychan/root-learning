@@ -3,8 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { parse } from 'querystring';
-import Navbar from '../../components/Navbar';
-import '../globals.css';
+import Navbar from '@/components/Navbar';
+import '@/css/globals.css';
+import CreateProjectButton from '@/components/CreateProjectButton';
+import FullPageModal from '@/components/FullPageModal';
+
 interface TypewriterProps {
   text: string;
 }
@@ -22,16 +25,15 @@ const Typewriter: React.FC<TypewriterProps> = ({ text }) => {
       }
     };
 
-    const typingInterval = setInterval(typeText, 100); // Adjust the typing speed (milliseconds per character)
+    const typingInterval = setInterval(typeText, 100);
 
     return () => {
-      clearInterval(typingInterval); // Cleanup on unmount to stop typing
+      clearInterval(typingInterval);
     };
   }, [text]);
 
   return <h1 className="text-4xl md:text-6xl font-bold">{displayText}</h1>;
 };
-
 
 const Welcome = () => {
   const router = useRouter();
@@ -45,46 +47,39 @@ const Welcome = () => {
     }
   }, []);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+
   return (
     <div>
       <header>
         <Navbar />
       </header>
 
-      <main className="bg-custom-brown h-screen text-white flex flex-col justify-start items-center p-4">
-        <div className="my-8 text-center">
-          {userName ? (
-            <Typewriter text={`Hi ${userName}!`} />
-          ) : (
-            <Typewriter text="Hi there!" />
-          )}
+      <main className="bg-custom-brown h-screen text-white flex flex-col justify-start p-4">
+        <div className="container mx-auto text-left"> {/* Container with left alignment */}
+          <div className="my-8">
+            {userName ? (
+              <Typewriter text={`Hi ${userName}!`} />
+            ) : (
+              <Typewriter text="Hi there!" />
+            )}
+          </div>
+
+          <section className="flex flex-col">
+            <CreateProjectButton openModal={openModal} />
+            <FullPageModal isOpen={isModalOpen} onClose={closeModal} />
+          </section>
         </div>
-
-        <section className="flex flex-col items-center">
-          <button
-            className="mt-4 bg-custom-flax text-white px-6 py-2 hover:bg-custom-peach rounded-full"
-            onClick={() => {
-              // Handle the quiz button click here
-            }}
-          >
-            Take Quiz
-          </button>
-          
-          <button
-            className="mt-4 bg-custom-peach text-white px-6 py-2 hover:bg-custom-flax rounded-full"
-            onClick={() => {
-              // Handle the quiz button click here
-            }}
-          >
-            Resume Learning
-          </button>
-
-          {/* Add more dashboard elements here */}
-        </section>
       </main>
-
-
-
     </div>
   );
 };

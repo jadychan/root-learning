@@ -1,0 +1,92 @@
+/* CSS for the full-page overlay */
+.full-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.full-page-overlay {
+  display: none;
+}
+
+/* Add a class to show the modal when it's open */
+.full-page-overlay.open {
+  display: flex;
+}
+
+/* CSS for the selected answer button */
+.selected-answer {
+  background-color: #E2D58B !important; /* Background color for the selected answer */
+}
+
+
+/* CSS for Modal Content */
+.modal-content {
+  background-color: white; /* Background color of the modal content */
+  padding: 20px; /* Adjust the padding as needed */
+  border-radius: 10px; /* Rounded corners for the modal content */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow for a card-like appearance */
+  width: 80%; /* Adjust the width as needed */
+  max-width: 400px; /* Maximum width of the modal content */
+  margin: 0 auto; /* Center the modal content horizontally */
+  color: black;
+}
+
+/* CSS for Modal Header */
+.modal-header {
+  text-align: center; /* Center-align the header text */
+  margin-bottom: 20px; /* Spacing below the header */
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.quiz-question {
+  text-align: center; /* Center-align quiz questions */
+  margin-bottom: 20px; /* Add spacing below quiz questions */
+}
+.quiz-question {
+  text-align: center; /* Center-align quiz questions */
+  margin-bottom: 20px; /* Add spacing below quiz questions */
+}
+
+.quiz-answer {
+  text-align: center; /* Center-align answer buttons */
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.quiz-button {
+  padding: 10px 20px; /* Adjust the padding as needed */
+  background-color: #C1D37F; /* Button background color */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+.quiz-button:hover {
+  background-color: #E2D58B; /* Background color on hover */
+}
+
+/* CSS for Next Button */
+.next-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-footer {
+  text-align: center; /* Center-align the footer content */
+  margin-top: 20px; /* Add spacing above the footer */
+}
